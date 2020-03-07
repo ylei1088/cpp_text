@@ -8,18 +8,39 @@ int main(){
 
     int currentFloor;
     int playerFloor;
-
+    int checkValidFloor = 0;
 
     printf("Choose a floor: ");
     scanf("\n%d", &playerFloor);
 
     for(int i = 0; i < size; i++)
     {
-        if(playerFloor >= i)
+        if(playerFloor == floors[i])
         {
-            printf(i); 
+            checkValidFloor = 1;
         }
     }
+
+    if(checkValidFloor == 1)
+    {
+        for(int i = 0; i < size; i++)
+        {
+            if(playerFloor > i)
+            {
+                printf("%d\n",i);   
+            }
+            else if(playerFloor == i)
+            {
+                printf("%d\n",i);
+                printf("DING!\n");
+            }
+        }
+    }
+    else
+    {
+        printf("Invalid Floor Inserted !");
+    }
+    
 
     return 0;
 }
